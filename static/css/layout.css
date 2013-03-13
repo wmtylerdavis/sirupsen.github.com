@@ -71,10 +71,13 @@ a:visited {
   display: none; 
 }
 
-pre {
-  margin: 0 0 20px 20px;
+code {
   font-size: 90%;
   font-family: Monaco, Consolas, monospace;
+}
+
+pre {
+  margin: 0 0 20px 20px;
   white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
   white-space: -pre-wrap; /* Opera */
   white-space: -o-pre-wrap; /* Opera */
