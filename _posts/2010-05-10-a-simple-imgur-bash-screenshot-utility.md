@@ -48,7 +48,7 @@ scrot -s
 Then using `curl` to upload the picture, via the Imgur API:
 
 {% highlight bash %}curl -s -F "image=@$1" -F "key=api-key" \
-http://imgur.com/api/upload.xml {% endhighlight %}
+https://imgur.com/api/upload.xml {% endhighlight %}
 
 This returns some XML containing, among other things, the direct URL to the uploaded screenshot, which we extract from the returned XML with a simple regex:
 
@@ -69,7 +69,7 @@ And I compiled all this into this simple script (I'm aware that this can be a on
 
 {% highlight bash %}
 function uploadImage {
-  curl -s -F "image=@$1" -F "key=486690f872c678126a2c09a9e196ce1b" http://imgur.com/api/upload.xml | grep -E -o "<original_image>(.)*</original_image>" | grep -E -o "http://i.imgur.com/[^<]*"
+  curl -s -F "image=@$1" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml | grep -E -o "<original_image>(.)*</original_image>" | grep -E -o "http://i.imgur.com/[^<]*"
 }
 
 scrot -s "shot.png" 
