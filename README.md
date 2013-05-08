@@ -4,7 +4,7 @@ My personal website and blog. I [blogged about it](http://sirupsen.com/the-switc
 
 ## License
 
-All my blog posts in `_posts` are copyrighted. 
+All my blog posts in `_posts` are copyrighted.
 
-You are welcome to use my design, in which case I would highly appreciate a link
+You are welcome to use my design, in which case you should provide a link
 back to http://sirupsen.com
