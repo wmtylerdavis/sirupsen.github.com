@@ -32,7 +32,6 @@ repository with the name "username".github.com", i.e. I push to
 Here's a guide to [migrate to Jekyll from other blogging engines][migrate].
 
 I've since cancelled my VPS. I no longer have to worry about a server or uptime.
-You're welcome to [fork my blog][source] to create your own.
 
 [low]: http://www.lowendbox.com/
 [pages]: http://pages.github.com
