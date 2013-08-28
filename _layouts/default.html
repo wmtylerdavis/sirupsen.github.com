@@ -34,49 +34,37 @@
     </head>
     <body>
     <div class="container"> 
-      <div id='mobile' class='two columns hidden'>
-        <ul>
-          <li><a href="/">wmtylerdavis</a></li>
-          <li><span class="gray">Tyler Davis</span></li>
-          <li><a href="mailto:williamtylerdavis@gmail.com">williamtylerdavis@gmail.com</a></li>
-          <li><a href="http://twitter.com/wmtylerdavis">@wmtylerdavis</a></li>
-          <li><a href="/blog">blog</a></li>
-        </ul>
-      </div>
-
-      <div class="four columns sidebar">
-        <section>
-          <a id="avatar" href="/"></a>
-
-          <ul id="social">
-            <li>
-              <a href="mailto:williamtylerdavis@gmail.com?subject=blog" id="sidebar-email" class="icon-envelope-alt" title="Say hi" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Email']);"></a>
-            </li>
-
-            <li>
-              <a href="http://www.linkedin.com/in/wmtylerdavis" id="sidebar-linkedin" class="icon-linkedin-sign" style="font-size: 25px;" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'LinkedIn']);"></a>
-            </li>
-
-            <li>
-              <a href="http://twitter.com/wmtylerdavis" id="sidebar-twitter" class="icon-twitter" title="You should follow me" style="font-size: 28px;" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Twitter']);"></a>
-            </li>
-
-            <li>
-              <a href="http://github.com/wmtylerdavis" id="sidebar-github" class="icon-github" title="I share and fork code here" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Github']);"></a>
-            </li>
+      <header class="group">
+        <div id='mobile' class='two columns hidden'>
+          <ul>
+            <li><a href="/">wmtylerdavis</a></li>
+            <li><span class="gray">Tyler Davis</span></li>
+            <li><a href="mailto:williamtylerdavis@gmail.com">williamtylerdavis@gmail.com</a></li>
+            <li><a href="http://twitter.com/wmtylerdavis">@wmtylerdavis</a></li>
+            <li><a href="/blog">blog</a></li>
           </ul>
+        </div>
 
-          <ul id="me">
-            <li>Tyler Davis</span></li>
-            <li class="gray">iOS developer</li>
+        <div class="header-inner">
+          <section>
+            <h1 class="avatar"><a id="avatar" href="/"></a></h1>
+            <h2> Tyler Davis likes to code</h2>
+          </secion>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="http://github.com/wmtylerdavis">octocat</a></li>
             <li><a href="/resume">résumé</a></li>
             <li><a href="/blog">blog</a></li>
-            <li>Currently coding to:</li>
-            <iframe src="https://embed.spotify.com/?uri=spotify:user:121125054:playlist:3Ubw8FKUaCzkdHNpqX0fZS" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
           </ul>
-        </section>
-      </div>
+        </nav>
+      </header>
       {{ content }}
-    </div>
+      <footer class="ten columns">
+        <p id='fork'> You can
+          <a href="http://github.com/wmtylerdavis">fork</a>, <a href="http://twitter.com/wmtylerdavis">tweet</a>, or <a href="mailto:williamtylerdavis@gmail.com?subject=blog">email</a> me.
+        </p>
+    </footer>
+  </div>
   </body>
 </html>

@@ -969,6 +969,59 @@ a:visited {
   color: #607890; 
 }
 
+header {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #333;
+}
+
+header .avatar {
+  float: left;
+}
+
+#avatar {
+  background-image: url('http://www.gravatar.com/avatar/8946001e6cd5c05ff42fa2c8eeb2747b.png?s=400');
+  background-size: cover;
+  height: 134px;
+  width: 134px;
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.8;
+  -webkit-transition:all 500ms ease-in;
+  -moz-transition:all 500ms ease-in;
+  -o-transition:all 500ms ease-in;
+}
+
+header .logo a:link,
+header .logo a:hover,
+header .logo a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+header .main-nav ul {
+  float: right;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+header .main-nav ul li {
+  float: left;
+  margin: 0 0 0 25px;
+}
+
+header .main-nav ul li a:link,
+header .main-nav ul li a:visited {
+  color: #FFF;
+  padding: 3px 6px;
+}
+
+header .main-nav ul li a:hover {
+  color: #FFF;
+  padding: 3px 6px;
+  text-decoration: none;
+}
+
 #posts a {
   padding-bottom: 15px;
 }
@@ -1034,19 +1087,6 @@ article ul li li li {
 	list-style: square outside;
 }
 
-#avatar {
-  background-image: url('http://www.gravatar.com/avatar/8946001e6cd5c05ff42fa2c8eeb2747b.png?s=400');
-  background-size: cover;
-  height: 134px;
-  width: 134px;
-  display: block;
-  margin-bottom: 8px;
-  opacity: 0.8;
-  -webkit-transition:all 500ms ease-in;
-  -moz-transition:all 500ms ease-in;
-  -o-transition:all 500ms ease-in;
-}
-
 #social li {
   display: inline-block;
   font-size: 22px;
@@ -1085,6 +1125,41 @@ sub {
   top: .5ex;
 }
 
+.main-nav ul {
+  float: right;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.main-nav ul li {
+  float: left;
+  margin: 0 0 0 25px;
+}
+
+.main-nav ul li a:link,
+.main-nav ul li a:visited {
+  color: #FFF;
+  padding: 3px 6px;
+}
+
+.main-nav ul li a:hover {
+  color: #333;
+  padding: 3px 6px;
+  text-decoration: none;
+}
+
+.footer-inner,
+.header-inner {
+  margin: 0 auto;
+  width: 750px;
+}
+
+.header-inner h2 {
+  padding: 3px 6px;
+  color: #FFF;
+}
+
+
 .footnotes {
   font-size: 12px;
 }
@@ -1106,6 +1181,24 @@ sub {
 #fork{
   font-style: italic;
   color:navy;
+}
+
+/* clearfix */
+
+.group:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+* html .group {
+  height: 1%;
+}
+
+*:first-child+html .group {
+  min-height: 1px;
 }
 
 /* #Page Styles
