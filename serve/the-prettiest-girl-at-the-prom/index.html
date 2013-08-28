@@ -1,0 +1,127 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->   
+<html lang="en"> 
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />  <!-- Force Latest IE rendering engine -->
+    <title>The prettiest girl at the prom</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+        <!-- syntax highlighting CSS -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-43018811-1', 'wmtylerdavis.com');
+            ga('send', 'pageview');
+        </script>
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+        <link href="http://feeds.feedburner.com/sirupsen" rel="alternate" title="Sirupsen" type="application/atom+xml" /> 
+        <link rel="shortcut icon" href="/static/images/favicon.png" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+
+        <link rel="stylesheet" href="/static/css/style.css">
+
+    </head>
+    <body>
+    <div class="container"> 
+      <div id='mobile' class='two columns hidden'>
+        <ul>
+          <li><a href='/'>wmtylerdavis</a></li>
+          <li><span class="gray">Tyler Davis</span></li>
+          <li><a href="mailto:williamtylerdavis@gmail.com">williamtylerdavis@gmail.com</a></li>
+          <li><a href="http://twitter.com/wmtylerdavis">@wmtylerdavis</a></li>
+        </ul>
+      </div>
+
+      <div class="four columns sidebar">
+        <section>
+          <a id="avatar" href="/"></a>
+
+          <ul id="social">
+            <li>
+              <a href="mailto:williamtylerdavis@gmail.com?subject=blog" id="sidebar-email" class="icon-envelope-alt" title="Say hi" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Email']);"></a>
+            </li>
+
+            <li>
+              <a href="http://www.linkedin.com/in/wmtylerdavis" id="sidebar-linkedin" class="icon-linkedin-sign" style="font-size: 25px;" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'LinkedIn']);"></a>
+            </li>
+
+            <li>
+              <a href="http://twitter.com/wmtylerdavis" id="sidebar-twitter" class="icon-twitter" title="You should follow me" style="font-size: 28px;" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Twitter']);"></a>
+            </li>
+
+            <li>
+              <a href="http://github.com/wmtylerdavis" id="sidebar-github" class="icon-github" title="I share and fork code here" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Github']);"></a>
+            </li>
+          </ul>
+
+          <ul id="me">
+            <li>Tyler Davis</span></li>
+            <li class="gray">iOS developer.</li>
+          </ul>
+
+        </section>
+      </div>
+
+      <h2>The prettiest girl at the prom</h2>
+<p class="meta">02 August 2013</p>
+
+<div class="post">
+<p>I feel like I’m in a good position right now. I’ve got several companies interested in me, so of course it feels like all I’m doing right now is interviewing. It feels great to be in this sort of position in August. December seems like a long but short time away.
+I’m still working on Rails. I want to be as diverse as possible. Ultimately I will build an iOS counterpart to the Rails app I’m currently working on. I feel like this will round out my experience a bit. When that happens I will probably start applying to Rails positions as well. And of course when that happens the flood gates sort of open to remote possibilities. There are a ton more remote Rails jobs than there are anything else it seems like.
+The interviews haven’t thrown me too much so far. Overall great interviewers that were easy to understand. I’ve had some OO design questions and lots of iOS/Objective-C specific questions. Amazing that even after all this time I’m still no good at explaining ARC.
+The data structure questions haven’t been as intense as I thought they would be. I was asked to reverse a linked list. Also asked to parse a file with rules that for every ‘{’ you needed a ‘}’ and for every ‘(’ you needed a ‘)’. I first stated that I may use a HashTable and just verify that each had the right corresponding number. I was then told that something like this ” { ( } )” would be invalid. So the next approach I took was these two small classes:</p>
+
+<pre><code>public class WrongBracketException extends Exception {
+
+    public WrongBracketException(String message) {
+      super(message);
+    }
+
+}
+
+class bufferedFileReader ( char[] a) {
+  Stack&lt;Character&gt; stackOfBrackets = new Stack&lt;Character&gt;();
+
+  for(int i = 0; i &lt; a.length; ++i) {
+    switch (a[i]) {
+
+      case ‘}’:
+        if (stackOfBrackets.peek() == ‘{‘)
+          stackOfBrackets.pop();
+        else throw new WrongBracketException(“Should match {“);
+        break;
+
+        case ‘)’:
+          if (stackOfBrackets.peek() == ‘(‘)
+            stackOfBrackets.pop();
+          else throw new WrongBracketException(“Should match (“);
+          break;
+        case ‘{‘:
+        case ‘(‘:
+          stackOfBrackets.push(a[i]);
+          break;
+        default:
+          break;
+    } // end switch
+  } // end for loop
+} // end class bufferedFileReader
+</code></pre>
+
+</div>
+
+    </div>
+  </body>
+</html>

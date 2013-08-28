@@ -1,13 +1,22 @@
 ---
 layout: default
-title: Sirupsen and his codeabouts
+title: Tyler Davis likes to code
 ---
 
-<ul id="posts" class="twelve columns offset-by-four">
-  {% for post in site.posts %}
-    <li>
-      <a class="nine columns" href="{{ post.url }}">{{ post.title }}</a>
-      <span class="two columns">{{ post.date | date: "%b %Y" }}</span>
-    </li>
-  {% endfor %}
-</ul>
+<article class='ten columns offset-by-four' id="article-content">
+  {% assign page = site.posts.first %}
+  <header class="ten columns" id="article-header">
+    <h2>About Me</h2>
+  </header>
+  <div class="ten columns" id="article-content">
+    <p>I'm a software developer currently living in DC as I finish out my stint in the US Air Force. I'm currently seeking employment for December to January.</p>
+    <br>
+    <p>I like to code iOS but I've recently fallen in love with Rails and the Ruby programming language. I've also been known to throw down some C++ and a little Java, but I am by no means a polyglot. I stumble my way to elegant solutions. I have a vague recollection of data structures. I believe any language can be learned quickly with a solid basis of CS fundamentals and a decent understanding of how to type things into the Google search engine.</p>
+    <br>
+    <p>I'm also a family man with a beautiful wife Jenn <img src="/static/images/us.jpg" alt="Jenn"> and the greatest little girl ever<img src="/static/images/Niagara.jpg" alt="AZD">
+    </p>
+    <br>
+    <p>I'm a huge fan of soccer, following the USMNT and Tottenham Hotspur, playing pickup when I can.</p>
+  </div>
+  <footer><p id='fork'>You can find my latest blog post <a href="{{ page.url }}">here</a></p></footer>
+</article>

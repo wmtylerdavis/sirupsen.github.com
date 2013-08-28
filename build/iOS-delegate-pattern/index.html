@@ -1,0 +1,158 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->   
+<html lang="en"> 
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />  <!-- Force Latest IE rendering engine -->
+    <title>iOS Delegate Pattern</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+        <!-- syntax highlighting CSS -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-43018811-1', 'wmtylerdavis.com');
+            ga('send', 'pageview');
+        </script>
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'> 
+        <link rel="shortcut icon" href="/static/images/favicon.png" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+    <div class="container"> 
+      <div id='mobile' class='two columns hidden'>
+        <ul>
+          <li><a href="/">wmtylerdavis</a></li>
+          <li><span class="gray">Tyler Davis</span></li>
+          <li><a href="mailto:williamtylerdavis@gmail.com">williamtylerdavis@gmail.com</a></li>
+          <li><a href="http://twitter.com/wmtylerdavis">@wmtylerdavis</a></li>
+          <li><a href="/blog">blog</a></li>
+        </ul>
+      </div>
+
+      <div class="four columns sidebar">
+        <section>
+          <a id="avatar" href="/"></a>
+
+          <ul id="social">
+            <li>
+              <a href="mailto:williamtylerdavis@gmail.com?subject=blog" id="sidebar-email" class="icon-envelope-alt" title="Say hi" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Email']);"></a>
+            </li>
+
+            <li>
+              <a href="http://www.linkedin.com/in/wmtylerdavis" id="sidebar-linkedin" class="icon-linkedin-sign" style="font-size: 25px;" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'LinkedIn']);"></a>
+            </li>
+
+            <li>
+              <a href="http://twitter.com/wmtylerdavis" id="sidebar-twitter" class="icon-twitter" title="You should follow me" style="font-size: 28px;" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Twitter']);"></a>
+            </li>
+
+            <li>
+              <a href="http://github.com/wmtylerdavis" id="sidebar-github" class="icon-github" title="I share and fork code here" onClick="_gaq.push(['_trackEvent', 'Social Icons', 'Click', 'Github']);"></a>
+            </li>
+          </ul>
+
+          <ul id="me">
+            <li>Tyler Davis</span></li>
+            <li class="gray">iOS developer</li>
+            <li><a href="/resume">résumé</a></li>
+            <li><a href="/blog">blog</a></li>
+          </ul>
+        </section>
+      </div>
+      <article class='ten columns offset-by-four' id="article-content">
+  <header class="ten columns" id="article-header">
+    <h1>iOS Delegate Pattern</h1>
+  </header>
+   <div class='ten columns gray' id="date-header">
+    <p>
+      14 Aug 2013
+      
+    </p>
+  </div>
+  <div class="ten columns" id="article-content">
+    <p>In the course of iOS job interviews there always tends to be a question about the iOS delegate pattern, their concerns (cycles) and maybe they will even throw in some random question about a block in relation. </p>
+
+<ol>
+  <li>
+    <p>What is a delegate?</p>
+
+    <p>Sometimes in iOS it is beneficial in a class not to execute code, but instead to ask a delegate to execute some code for you. A great example of this is done by the UIAlertView class. There is a lot of benefit to knowing when a button was pressed in the UIAlertView, but Apple developers have no clue what you’d be using the alert for so they create a protocol. </p>
+  </li>
+  <li>
+    <p>Protocols in iOS:</p>
+
+    <p>A protocol is a list of methods with no definitions. </p>
+  </li>
+  <li>
+    <p>Describe the “delegate” pattern in Objective-C.</p>
+
+    <p>Class A (UIAlertView) creates a protocol and adds an instance of the protocol as a property. Class B (YourViewController) has to implement the protocol. When class A is created its delegate property is set to class B.  </p>
+  </li>
+  <li>
+    <p>What are some of the memory concerns related to this pattern and how they can be avoided?</p>
+
+    <p>An object cannot be deallocated until all of its strong references are released. A retain cycle can occur if two objects have strong references to each other, causing a memory leak. So here B creates A. B sets itself as A’s delegate. Then B is released by its owner If A had retained B, then B wouldn’t be released. Therefore delegates should use a weak reference. </p>
+  </li>
+  <li>
+    <p>Delegate vs Blocks???</p>
+
+    <p>Delegate callbacks are more process oriented and blocks are more results oriented. If you just want the information you are requesting then use a block. Blocks are associated with asynchronous actions and single instance uses (if an object is a singleton, use a block).Delegates are correct when you need ongoing communication. If an object has more than one distinct event, use delegation.</p>
+  </li>
+</ol>
+
+<p>Here is some sample code from the example above: 
+	&lt;div&gt;</p>
+<pre><code class="objective-c">@class ClassA;
+
+	@protocol ClassADelegate &lt;NSObject&gt;
+
+	-(void)someMethod:(ClassA*)classA;
+	@end
+
+	@interface ClassA : NSObject 
+	{ }
+
+	@property (nonatomic, assign) id&lt;ClassADelegate&gt; delegate;
+	@end
+
+ 	@interface ClassB : NSObject &lt;ClassADelegate&gt; 
+	{ }
+	@end
+
+	@implementation ClassB
+
+	// where needed classA.delegate = self
+
+	- (void)someMethod:(ClassA*)classA 
+	{ 
+ 		// do something 
+	}
+	@end</code></pre>
+<p>&lt;/div&gt;</p>
+
+
+  </div>
+  <footer class="ten columns">
+    <p id='fork'>
+      You can clone or fork my blog on <a href="http://github.com/wmtylerdavis/wmtylerdavis.github.io">GitHub</a>.
+    </p>
+  </footer>
+</article>
+    </div>
+  </body>
+</html>

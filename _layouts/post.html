@@ -7,24 +7,20 @@ blog: true
   <header class="ten columns" id="article-header">
     <h1>{{ page.title }}</h1>
   </header>
-
-  <div class='ten columns gray' id="date-header">
+   <div class='ten columns gray' id="date-header">
     <p>
-      {{ page.date | date: "%b %Y" }}
-  {% if page.updated_at %}
+      {{ page.date | date: "%d %b %Y" }}
+      {% if page.updated_at %}
       revised {{ page.updated_at }}
-  {% endif %}
+      {% endif %}
     </p>
-
   </div>
-
   <div class="ten columns" id="article-content">
     {{ content }}
   </div>
-
   <footer class="ten columns">
-    <p id='follow'>
-      You should follow me on Twitter <a href="http://twitter.com/Sirupsen" target="_blank" onClick="_gaq.push(['_trackEvent', 'Post', 'Click', 'Twitter']);">here </a>.
+    <p id='fork'>
+      You can clone or fork my blog on <a href="http://github.com/wmtylerdavis/wmtylerdavis.github.io">GitHub</a>.
     </p>
   </footer>
 </article>

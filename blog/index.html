@@ -1,0 +1,16 @@
+---
+layout: default
+title: Tyler Davis blog
+---
+
+<div id="blog">
+	<h1>Posts</h1>
+	<ul id="posts" class="twelve columns offset-by-four">
+  	  {% for post in site.posts %}
+    	<li>
+      		<a class="eight columns" href="{{ post.url }}">{{ post.title }}</a>
+      		<span class="three columns">{{ post.date | date_to_string }}</span>
+    	</li>
+  	  {% endfor %}
+  	</ul>
+</div>

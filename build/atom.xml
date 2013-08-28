@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Sirupsen</title>
+ <link href="http://sirupsen.github.com/atom.xml" rel="self"/>
+ <link href="http://sirupsen.github.com/"/>
+ <updated>2013-08-17T10:33:33-04:00</updated>
+ <id>http://sirupsen.github.com</id>
+ <author>
+   <name>Sirupsen</name>
+   <email>sirup@sirupsen.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>The Switch to GitHub Pages and Jekyll</title>
+   <link href="http://sirupsen.github.com/switch-to-github-pages"/>
+   <updated>2013-08-17T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/switch-to-github-pages</id>
+   <content type="html">&lt;p&gt;I wasn’t exactly happy with tumblr, so I went looking for alternatives to nothing really. Then I came across this &lt;a href=&quot;http://sirupsen.com/what-I-wish-a-ruby-programmer-had-told-me-one-year-ago/&quot;&gt;blog post&lt;/a&gt; and noticed that it was powered by GitHub pages and Jekyll. I knew about GitHub pages but sort of thought they were relegated to repo descriptions and creating your own themes. &lt;/p&gt;
+
+&lt;p&gt;So I forked the @sirupsen blog and renamed it. Then I was off to the races. You can learn more about &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;, which has been a dream to work with. Most of my pages and all of my blog posts are written using &lt;a href=&quot;http://kramdown.rubyforge.org/&quot;&gt;Kramdown&lt;/a&gt; flavored &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;. Leaving me with only a little HTML and very slight bit of CSS work to do. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>More objects, ViewController bloat, Testing, and Refactoring</title>
+   <link href="http://sirupsen.github.com/more-objects"/>
+   <updated>2013-08-15T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/more-objects</id>
+   <content type="html">&lt;p&gt;I was listening to &lt;a href=&quot;https://learn.thoughtbot.com/buildphase/3&quot;&gt;Build Phase&lt;/a&gt; this morning, and they definitely brought up one of my greatest weaknesses which is not creating enough objects. This doesn’t necessarily mean that my code isn’t DRY, but instead it means there is usually a lot of bloat in my viewcontrollers. I couldn’t help but compare this in my mind to my Rails experience so far, which led me to thinking about why I tend to let this happen in iOS but not so much in Rails.&lt;/p&gt;
+
+&lt;p&gt;First thing is that iOS development is a little bit slow. It takes a long time to get something meaningful to the screen, where in Rails it can take minutes. So once I’ve got something on the screen, I’m not as much in the mood to test and refactor it.&lt;/p&gt;
+
+&lt;p&gt;Second problem that I have is I’m not a good tester. I love RSpec in Rails, but I haven’t found anything in iOS that is that intuitive. My test files can suffer from a similar bloat as the viewcontrollers. This is no bueno.&lt;/p&gt;
+
+&lt;p&gt;So obviously the simple solution, or at least the one the Build Phase guys suggest is to begin your project thinking about these things first. Design your classes meticulously for optimal code reuse and simplification. This all sounds nice, but unless you know exactly what the app will look like and the framework it is working with then these things are hard to do. From my experience the server-side has often been developed alongside iOS. So I’m not always able to predict what’s coming along. &lt;/p&gt;
+
+&lt;h3 id=&quot;my-plan&quot;&gt;My plan&lt;/h3&gt;
+&lt;p&gt;I’m going to treat iOS as similar to Rails as possible. I’m going to write test driven code. I’m going to test. When a view controller gets hairy, I’m going to refactor the SOB. I don’t care if it takes a day or two away from shipping product (see that’s the key here - understanding that writing clean code is just as important as shipping product). Once the code is refactored I can then test. I have to remind myself that Git is my friend. As long as I’m branching and merging clean code I’m good. I don’t have to worry about effing things up when I refactor. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>iOS Delegate Pattern</title>
+   <link href="http://sirupsen.github.com/iOS-delegate-pattern"/>
+   <updated>2013-08-14T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/iOS-delegate-pattern</id>
+   <content type="html">&lt;p&gt;In the course of iOS job interviews there always tends to be a question about the iOS delegate pattern, their concerns (cycles) and maybe they will even throw in some random question about a block in relation. &lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;What is a delegate?&lt;/p&gt;
+
+    &lt;p&gt;Sometimes in iOS it is beneficial in a class not to execute code, but instead to ask a delegate to execute some code for you. A great example of this is done by the UIAlertView class. There is a lot of benefit to knowing when a button was pressed in the UIAlertView, but Apple developers have no clue what you’d be using the alert for so they create a protocol. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Protocols in iOS:&lt;/p&gt;
+
+    &lt;p&gt;A protocol is a list of methods with no definitions. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Describe the “delegate” pattern in Objective-C.&lt;/p&gt;
+
+    &lt;p&gt;Class A (UIAlertView) creates a protocol and adds an instance of the protocol as a property. Class B (YourViewController) has to implement the protocol. When class A is created its delegate property is set to class B.  &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;What are some of the memory concerns related to this pattern and how they can be avoided?&lt;/p&gt;
+
+    &lt;p&gt;An object cannot be deallocated until all of its strong references are released. A retain cycle can occur if two objects have strong references to each other, causing a memory leak. So here B creates A. B sets itself as A’s delegate. Then B is released by its owner If A had retained B, then B wouldn’t be released. Therefore delegates should use a weak reference. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Delegate vs Blocks???&lt;/p&gt;
+
+    &lt;p&gt;Delegate callbacks are more process oriented and blocks are more results oriented. If you just want the information you are requesting then use a block. Blocks are associated with asynchronous actions and single instance uses (if an object is a singleton, use a block).Delegates are correct when you need ongoing communication. If an object has more than one distinct event, use delegation.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Here is some sample code from the example above: 
+	&amp;lt;div&amp;gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;objective-c&quot;&gt;@class ClassA;
+
+	@protocol ClassADelegate &amp;lt;NSObject&amp;gt;
+
+	-(void)someMethod:(ClassA*)classA;
+	@end
+
+	@interface ClassA : NSObject 
+	{ }
+
+	@property (nonatomic, assign) id&amp;lt;ClassADelegate&amp;gt; delegate;
+	@end
+
+ 	@interface ClassB : NSObject &amp;lt;ClassADelegate&amp;gt; 
+	{ }
+	@end
+
+	@implementation ClassB
+
+	// where needed classA.delegate = self
+
+	- (void)someMethod:(ClassA*)classA 
+	{ 
+ 		// do something 
+	}
+	@end&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&amp;lt;/div&amp;gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Stack Overflow - a necessary evil</title>
+   <link href="http://sirupsen.github.com/stack-overflow-a-necessary-evil"/>
+   <updated>2013-08-07T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/stack-overflow-a-necessary-evil</id>
+   <content type="html">&lt;p&gt;I’ll start by saying that I’m not a fan of Stack Overflow at all. The user experience is one of the worst that I’m a part of. Questions get voted down or marked as duplicate when they shouldn’t be by users with more power. Sometimes you answer a question and it is never marked as the best answer or maybe the question doesn’t gain enough traction for you to get any up-votes. Overall I’ve given up both asking questions and answering them.&lt;/p&gt;
+
+&lt;p&gt;I use Stack Overflow for a number of reasons though. One is that its job board is one of the best by far and I was invited to build a Careers 2.0 profile. The second reason is it is still the best way to find an answer to a programming question. But wait, Tyler, you said you don’t ask questions on there???&lt;/p&gt;
+
+&lt;p&gt;No, I’ve become what I call a Stack Overflow Miner. I find that all questions that aren’t super specific have been answered, of course we all know this because if we ask a basic question it gets marked as a duplicate. And of course if you ask a specific question it gets marked as too specific.&lt;/p&gt;
+
+&lt;p&gt;So really the key is to know how to find the information you are after. Couple of strategies here:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The more basic the better, know what language you want your answer in. Let’s say I want to know how to reverse a linked list. First you can search by the language: “reverse linked list ruby”&lt;/li&gt;
+  &lt;li&gt;It’s been answered in Java. Java is the most readable language in my opinion. If you can’t find the answer in the language you are looking for, then try in java: “reverse linked list java” will almost definitely come up with an answer.&lt;/li&gt;
+  &lt;li&gt;Bare bones your error. When looking up errors or warnings never leave in the pointer information or any app specific information. Strip it to the bare bones of the error message and its almost guaranteed to be found.&lt;/li&gt;
+  &lt;li&gt;Lastly, this is just a pet peeve of mine, but never copy and paste. Not only will typing it out help you get a better understanding of what’s going on, but answers are notorious for bad variable names. Always create your own.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Took a lil break</title>
+   <link href="http://sirupsen.github.com/took-a-lil-break"/>
+   <updated>2013-08-06T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/took-a-lil-break</id>
+   <content type="html">&lt;p&gt;I have to say that I did nothing this past weekend, except adding some minor tests to the Michael Hartl tutorial app. It felt so good. Why you ask did I take a break from my love of all thing code?&lt;/p&gt;
+
+&lt;p&gt;The first part of Breaking Bad season 5 was added to Netflix. Jenn and I were pretty obsessed with it for a couple weeks some months back. It is so good and let me say that the first half of this season didn’t disappoint either. We can’t wait for the new episodes starting this weekend!&lt;/p&gt;
+
+&lt;p&gt;So my buddies are working on a new app, you can find more able tikr &lt;a href=&quot;http://tikr.me&quot;&gt;here&lt;/a&gt;. Also be sure to download the free iPhone app.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The prettiest girl at the prom</title>
+   <link href="http://sirupsen.github.com/the-prettiest-girl-at-the-prom"/>
+   <updated>2013-08-02T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/the-prettiest-girl-at-the-prom</id>
+   <content type="html">&lt;p&gt;I feel like I’m in a good position right now. I’ve got several companies interested in me, so of course it feels like all I’m doing right now is interviewing. It feels great to be in this sort of position in August. December seems like a long but short time away.
+I’m still working on Rails. I want to be as diverse as possible. Ultimately I will build an iOS counterpart to the Rails app I’m currently working on. I feel like this will round out my experience a bit. When that happens I will probably start applying to Rails positions as well. And of course when that happens the flood gates sort of open to remote possibilities. There are a ton more remote Rails jobs than there are anything else it seems like.
+The interviews haven’t thrown me too much so far. Overall great interviewers that were easy to understand. I’ve had some OO design questions and lots of iOS/Objective-C specific questions. Amazing that even after all this time I’m still no good at explaining ARC.
+The data structure questions haven’t been as intense as I thought they would be. I was asked to reverse a linked list. Also asked to parse a file with rules that for every ‘{’ you needed a ‘}’ and for every ‘(’ you needed a ‘)’. I first stated that I may use a HashTable and just verify that each had the right corresponding number. I was then told that something like this ” { ( } )” would be invalid. So the next approach I took was these two small classes:&lt;/p&gt;
+
+&lt;div&gt;
+  &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class WrongBracketException extends Exception {
+        public WrongBracketException(String message) {
+          super(message);
+        }
+    }
+    class bufferedFileReader ( char[] a) {
+    
+      Stack&amp;lt;Character&amp;gt; stackOfBrackets = new Stack&amp;lt;Character&amp;gt;();
+
+      for(int i = 0; i &amp;lt; a.length; ++i) {
+        switch (a[i]) {
+
+          case ‘}’:
+            if (stackOfBrackets.peek() == ‘{‘)
+              stackOfBrackets.pop();
+            else throw new WrongBracketException(“Should match {“);
+            break;
+
+            case ‘)’:
+              if (stackOfBrackets.peek() == ‘(‘)
+                stackOfBrackets.pop();
+              else throw new WrongBracketException(“Should match (“);
+              break;
+            case ‘{‘:
+            case ‘(‘:
+              stackOfBrackets.push(a[i]);
+              break;
+            default:
+              break;
+        } // end switch
+      } // end for loop
+    } // end class bufferedFileReader&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>What I'm Looking For</title>
+   <link href="http://sirupsen.github.com/what-im-looking-for"/>
+   <updated>2013-07-28T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/what-im-looking-for</id>
+   <content type="html">&lt;p&gt;First and foremost I’m looking for a job. I would love for it to be with iOS, however I’m learning Rails and finding it to be extremely fun and Ruby is a great language to get along with. Rails is probably more fun than iOS. Part of this may be due to Test Driven Development, which I could/should use with iOS but I haven’t done much of in the past. I’m going to try to do more in the future for sure.&lt;/p&gt;
+
+&lt;p&gt;All that being said, I can’t limit my job search. I have to put food on the table. I have a wonderful baby girl and a wife who would prefer to stay at home with her ( I would too, remote jobs are awesome). What I want in a in house position is for me to want to be there every day. I want it to be doing something I enjoy. I don’t want to wear a suit or a uniform but role up in my favorite pair of jeans and a Star Wars t-shirt. I don’t care about nerf gun wars. I actually read a posting with a mandatory happy hour on Friday afternoons. I love beer more than most people, but don’t cut in on my family time on purpose. &lt;/p&gt;
+
+&lt;p&gt;Oh and USA soccer killed it today. Way to go fellas. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>SQLite to Postgres</title>
+   <link href="http://sirupsen.github.com/sqlite-to-postgres"/>
+   <updated>2013-07-25T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/sqlite-to-postgres</id>
+   <content type="html">&lt;p&gt;Currently I’m trying to learn some Rails by going through Michael Hartl’s wonderful Rails Tutorial. I decided a little late in the game that I wanted to change my development and test databases from SQLite3 to the same as my production Heroku friendly Postgres database. &lt;/p&gt;
+
+&lt;p&gt;So I downloaded Postgres, had a few hiccups but nothing Stack Overflow couldn’t handle, changed my database.yml file to something akin to this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;development:  
+adapter: postgresql  
+encoding: unicode  
+database: myapp_development  
+pool: 5  
+username: username  
+password:
+
+test:  
+adapter: postgresql  
+encoding: unicode  
+database: myapp_test  
+pool: 5  
+username: username  
+password:
+
+production:  
+adapter: postgresql  
+encoding: unicode  
+database: myapp_production  
+pool: 5  
+username: username  
+password:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I ran bundle exec rake db:create:all, and I was off to the races. Creating users in the console seemed fine… except it wasn’t. Days go by and I finally figure out that I can’t find my users. I’m not sure why but my .sqlite3 database files were still in the app. So I removed them. Ran a db:migrate. Hmm… still not working. 
+Another Google and SO search and boom: bundle exec rake db:reset
+This tiny command saved me lots of heartache. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Love/Hate Email</title>
+   <link href="http://sirupsen.github.com/love-hate-email"/>
+   <updated>2013-07-24T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/love-hate-email</id>
+   <content type="html">&lt;p&gt;Applying for jobs is nerve-racking. It’s a job unto itself. I find myself terrified to open email yet I feel the urge that I must every 5 minutes.&lt;/p&gt;
+
+&lt;p&gt;It baffles me that some companies don’t feel the need to send out a kind thanks for applying but it wasn’t a fit email. In this day of automated everything, I get these type emails almost daily. While I don’t know why some companies are interested in me while others are not, I feel that at least these emails serve a purpose. Some recruiters have even taken the time to write an email to me, often going with the cliché “it’s not you, it’s me (our company)” but still I find these emails helpful and kind.&lt;/p&gt;
+
+&lt;p&gt;It also amazes me how fast some companies are at responding to resumes. Goodreads seems to have it down pat, you can pretty much expect some kind of response the same day you apply, which probably means they are using some automated system to scan your resume for keywords.&lt;/p&gt;
+
+&lt;p&gt;Anyway, got to run and check my email.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Passive User</title>
+   <link href="http://sirupsen.github.com/passive-user"/>
+   <updated>2013-07-16T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/passive-user</id>
+   <content type="html">&lt;p&gt;So, in my job search I’m reaching out mostly to a range of top 20 companies, companies everyone has heard of, and I’m reserving remote job openings for a few months from now. This is because there aren’t a ton of iOS remote jobs and there are more Rails remote gigs. I’m in the beginnings of learning Rails, so probably not the time to apply.&lt;/p&gt;
+
+&lt;p&gt;What I’ve noticed applying for these big companies (Twitter, Facebook, Zappos, GitHub, etc) is that I’m a passive user. I love Twitter but I hardly tweet. I don’t have the followers to get my word out (not that I have many on tumblr either). So instead I favorite tweets, I retweet, and on occassion I reply to tweets. Same thing goes for most other services. I applied at Goodreads and realized I just read reviews. I never write them myself. I always have a hard time jumping in on projects on GitHub but man I love GitHub and it has been an immense asset in the private iOS repos that both I and the startup I work for have.&lt;/p&gt;
+
+&lt;p&gt;I guess what I’m getting at is it’s hard to prove you love a product when you don’t use it as its intended. But I can assure you if I’m even somewhat active then I like your product. A great example of something I never use is Untappd. Trust me I drink beer. I love craft beer and pride myself on trying anything I haven’t before. Yet I find it hard to log in to Untappd and rate beers. It’s just not something I care enough to use.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Meetup (Ruby)</title>
+   <link href="http://sirupsen.github.com/meetup-ruby"/>
+   <updated>2013-07-12T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/meetup-ruby</id>
+   <content type="html">&lt;p&gt;I geeked out last night by going to my first Meetup ever. This was a DCRUG (Ruby Users Group) meetup. This month’s was set up for newbs, which I’m proud to say I was more like an advanced newb.&lt;/p&gt;
+
+&lt;p&gt;I’ve learned a lot about Rails and Ruby from ruby.railstutorial.org, plus it helps knowing a couple different programming languages and having a pretty great understanding of MVC from my iOS development. There were a few people who didn’t know a programming language at all.&lt;/p&gt;
+
+&lt;p&gt;We went through a Ruby tutorial, then a Rails tutorial (the usual create a blog with scaffolding),  pizza and soda were provided. All in all it was a great experience.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>how not to see my resume</title>
+   <link href="http://sirupsen.github.com/how-not-to-see-my-resume"/>
+   <updated>2013-07-11T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/how-not-to-see-my-resume</id>
+   <content type="html">&lt;p&gt;Caveat: My resume is available for anyone to see here on the site.&lt;/p&gt;
+
+&lt;p&gt;I’m on the job hunt, but as I’m not available for a few months I’ve narrowed my focus to only great companies and no startups. Startups tend to need someone like yesterday, so telling them to wait to December doesn’t usually go over well.&lt;/p&gt;
+
+&lt;p&gt;What is a great company? Well I can tell you what it’s not. It’s not a company that touts its jeans on Friday policy or brags about its coffee and snack bar. If in your job posting you ask for a ninja, wizard, or any other character better suited for a Kung Fu movie, then your company is crap and I’m not sending you my resume. Also if you feel the need to mention nerf darts. The last time I played with nerf guns I was like 9; I prefer to keep it that way. This is like the direct opposite of having a kegerator in your office.&lt;/p&gt;
+
+&lt;p&gt;Great companies have a mission greater than their handful of employees. Great companies have employees that want to be there. Great companies don’t worry about hours; they just know the job will get done. Great companies probably have a kegerator.&lt;/p&gt;
+
+&lt;p&gt;P.S. PHP ninjas?? Really?? This isn’t the 90’s.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Building Stuff</title>
+   <link href="http://sirupsen.github.com/building-stuff"/>
+   <updated>2013-07-08T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/building-stuff</id>
+   <content type="html">&lt;p&gt;I wasted about 2 hours on a programming challenge from Facebook tonight. Not exactly sure why I even bothered. It’s not that I’m not adept at Data Structures and Algorithms. I’m okay. Given time I do more than fine. I just hate the pressure and often find myself puzzled for a good while in these competition type things.&lt;/p&gt;
+
+&lt;p&gt;I know being on the job hunt I’m sort of forced to get my head around these puzzles. So I’m probably going to start spending a few hours a week devoted to them.&lt;/p&gt;
+
+&lt;p&gt;Challenges and puzzles are beneficial and all but I believe it’s way better to build something. Now that HowWeMet is in a pretty stable version in the App Store, I have an Open Source SDK that I’m planning to work on to both learn Rails and help my GitHub resume. I’ll also be looking to fork something interesting and see if I can contribute.&lt;/p&gt;
+
+&lt;p&gt;Back to the grind…&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The Coffee is Always Better at Home</title>
+   <link href="http://sirupsen.github.com/the-coffee-is-always-better-at-home"/>
+   <updated>2013-06-25T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/the-coffee-is-always-better-at-home</id>
+   <content type="html">&lt;p&gt;For the past year I’ve had a Starbucks within walking distance of work, that being said I’m not talking about that type work environment.&lt;/p&gt;
+
+&lt;p&gt;We’ve all had the job with the $5-a-month coffee pot. The one where you have no clue where the coffee comes from, who makes it, or why it smells like burnt bacon. The one where you leave a skim layer of coffee at the bottom so you aren’t responsible for making the next pot, only for the guy behind you to curse the heavens and feel that yes you still should be responsible for the next pot.&lt;/p&gt;
+
+&lt;p&gt;Maybe your office has a Keurig but you still haven’t found that perfect K-cup (it’s called JetFuel and it’s made by CoffeePeople BTW).&lt;/p&gt;
+
+&lt;p&gt;We all know the coffee is always better at home, even if it isn’t.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Eureka Moments</title>
+   <link href="http://sirupsen.github.com/eureka-moments"/>
+   <updated>2013-06-24T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/eureka-moments</id>
+   <content type="html">&lt;p&gt;So another reason I believe hours are bullsh**… Problems are never solved by sitting at a desk for 9 hours a day - at least not the problems I’ve come across.&lt;/p&gt;
+
+&lt;p&gt;I tend to bang my head against my computer for hours on end trying to fix a bug only to find that the answer comes naturally to me while I’m in the throes of something else. That being said it’s not usually answering email or writing a Word doc or playing with a spreadsheet.&lt;/p&gt;
+
+&lt;p&gt;Eureka moments happen when you’re taking a shower, walking your dog, or working out. Step away from the desk, far away, seriously - like out the door and through the woods. The solutions will find you and they aren’t necessarily on Stack Overflow.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>It's Not All Mai Tai's</title>
+   <link href="http://sirupsen.github.com/its-not-all-mai-tais"/>
+   <updated>2013-06-19T00:00:00-04:00</updated>
+   <id>http:/sirupsen.github.com/its-not-all-mai-tais</id>
+   <content type="html">&lt;p&gt;Yesterday on my Facebook I posted this link: Why You Should Quit Your Job and Travel Now. This is a great article about the joy of world travel and why it’s never going to be a good time, so you should make it time now. I’m ready to travel.&lt;/p&gt;
+
+&lt;p&gt;I’ve been working remotely for a little over 6 months, unfortunately I have only been working remotely part-time and I have still had the luxury of a day job. While I can’t wait to make remote work my everyday and not just my late at night and my weekend, I can say without a doubt it won’t be that dream that people seem to have of it. I won’t be clicking away on my keyboard at a beach in Hawaii - not everyday at least.&lt;/p&gt;
+
+&lt;p&gt;No — remote work will put me closer to my family. I will spend an hour on the floor of my apartment playing with my 9-month-old while struggling with a solution to a problem. I will hear her laugh while I’m on the couch debugging. I will go for an afternoon walk with my wife and daughter right in the middle of the so called work day. I know my most valuable coding is done in the few hours in the morning when my family is still sleeping and the couple of hours I stay up after they’ve gone to bed. Those are the times I will code — not the 8 hour chunk in the middle of the day.&lt;/p&gt;
+
+&lt;p&gt;Hours are bullshhh, cubicles are bullshhh, and life is good.&lt;/p&gt;
+</content>
+ </entry>
+ 
+</feed>
