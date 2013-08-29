@@ -10,7 +10,7 @@ tags:
  
 ## or why I fork shit I never contribute to
  
-I've noticed a trend that I am definitely a member of. Lots of people fork repositories only to never contribute a single line of code, let alone contribute and pull request. In my work with HowMuch I did actually contribute end up forking and contributing code to a couple of [projects](github.com/HowMuchTo). These were usually just single line or only a few line fixes to either add a feature as I did with KGModalView - which there was definitely a more elegant solution for, which is why my pull request was denied, or to fix a bug - which isn't really a bug but we didn't like the way that the countdown in JDFlipNumberView was flipping in our minds upside down.
+I've noticed a trend that I am definitely a member of - lots of people fork repositories only to never contribute a single line of code, let alone contribute and submit a pull request. In my work with HowMuch I did actually end up forking and contributing code to a couple of [projects](github.com/HowMuchTo). These were usually just single line or only a few line fixes to either add a feature as I did with KGModalView - which there was definitely a more elegant solution for (which is why my pull request was denied) or to fix a bug - which isn't really a bug but we didn't like the way that the countdown in JDFlipNumberView was flipping - in our minds it was upside down.
  
 When using [CocoaPods](cocoapods.org) you can easily point the pod in your podfile to your forked repo like so:
  
@@ -21,4 +21,4 @@ For the most part I do nothing with my forks. So why fork? Well when you're new 
     fork repo
     time goes by
     git remote add upstream https://github.com<forked repo>
-    git merge upstream/master
+    git merge upstream/maste
