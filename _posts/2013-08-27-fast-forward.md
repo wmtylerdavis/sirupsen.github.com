@@ -21,4 +21,4 @@ For the most part I do nothing with my forks. So why fork? Well when you're new 
     fork repo
     time goes by
     git remote add upstream https://github.com<forked repo>
-    git merge upstream/maste
+    git merge upstream/master
