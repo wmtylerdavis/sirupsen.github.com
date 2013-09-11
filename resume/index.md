@@ -44,10 +44,3 @@ B.S. in Mathematics, 2006
 
 RELEVANT COURSEWORK IN:
 C++, Object Oriented Programming, Data Structures			3.75/4.0
-
-## Projects ##	
-+ Designed and Developed [HowWeMet](https://itunes.apple.com/app/howwemet/id657157238?mt=8) HowWeMet iPhone Application
-	- Simple Parse application with Facebook Open Graph 
-	- Search Facebook photos for tags with user and targeted friend
-+ GitHub open source contributions:
-	- KGModal – added close with completion block capability
