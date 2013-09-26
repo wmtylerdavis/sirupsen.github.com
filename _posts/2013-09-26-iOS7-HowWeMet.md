@@ -19,4 +19,4 @@ I've cleaned up the code a lot. I got really sloppy with my pointer declaration.
  
 My current issue in the code is in my layout for the actual Meet story view. I had been doing everything in the loadView method and it worked well with a call to layoutSubviews. Now I'm conforming the code to iOS7 by doing my layout in viewWillLayoutSubviews (I'm still doing some stuff in loadView). My plan for tonight is to get in there some more and fix the bugs. I see lots of /* commenting out layout code */ in my future.
  
-If you're interested in watching the process make sure to watch or start the [repo](github.com/wmtylerdavis/HowWeMet-iOS7).
+If you're interested in watching the process make sure to watch or star the [repo](github.com/wmtylerdavis/HowWeMet-iOS7).
