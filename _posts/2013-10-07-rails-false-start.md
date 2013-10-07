@@ -23,7 +23,6 @@ First and foremost I'll actually split out the views for Lunches. No longer will
 Next I'm going to separate out Restaurants from Lunches. One a Restaurant is created, it should stay in the database. This should dramatically reduce the database size in the long run. I can then use has_many :through.
  
 I'm probably going to model it out this way:
-{% highlight ruby %}
 
     class Lunch < ActiveRecord::Base
       has_many :lunch_locations
@@ -39,4 +38,3 @@ I'm probably going to model it out this way:
       has_many :lunch_locations
       has_many :lunches, through: :lunch_locations
     end
-{% endhighlight %}
