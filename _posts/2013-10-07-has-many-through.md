@@ -4,9 +4,6 @@ title: "has_many :through"
 tags:
 - programming
 - ruby
-- has_many
-- lunch
-- push
 ---
 
 I finally got a little bit of time to work on Lunch Push this weekend. Of course I got that anxious feeling of opening up a project you haven't looked at in a while. The heart pounding anxious feeling of not know where you left off and where to start back.
