@@ -37,4 +37,4 @@ I'm probably going to model it out this way:
     class Restaurant < ActiveRecord::Base
       has_many :lunch_locations
       has_many :lunches, through: :lunch_locations
-    en
+    end
