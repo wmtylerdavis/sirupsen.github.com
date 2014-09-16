@@ -21,7 +21,8 @@ Bottle Rocket Apps, Dallas, TX
 December 2013 - Present
 
 +	Built initial version of Bottle Rocket’s Bug Shaker framework – a library that allows testers to shake the app and add bug reports to Jira. Bug Shaker utilizes a category on UIViewController to allow a user to shake the device on any screen, this takes a screenshot and allows the user to paint and highlight visual errors, and finally upload the report utilizing the Jira REST API. 
-+	As an AWE Framework engineer, took ownership of the main navigation, creating the flow layout, datasource, view controller, and actions/action handlers that power navigation throughout every implementation of the framework (future releases slated for October 2014).+	Delivered bug fixes and framework updates to USA Now, Oxygen Now, Telemundo Now, and Sprout Now.
++	As an AWE Framework engineer, took ownership of the main navigation, creating the flow layout, datasource, view controller, and actions/action handlers that power navigation throughout every implementation of the framework (future releases slated for October 2014).   
++	Delivered bug fixes and framework updates to USA Now, Oxygen Now, Telemundo Now, and Sprout Now.
 
 Freelance iOS Engineer  
 October 2012 – December 2013  
