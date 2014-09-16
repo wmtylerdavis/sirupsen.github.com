@@ -8,19 +8,26 @@ Software Engineer with experience in data analysis. Additional experience in use
 
 ### Software development: ###
 +	2 App Store applications
-+	Languages: Objective-C (daily use), C++(proficient), Java (experienced), Ruby (familiar)
-+	Cocoa Touch/ iOS/iPhone
-+	Education: BS Applied Mathematics with courses in Object Oriented Programming, Data Structures  
-+	Relational Database experience: SQL, SAS, MATLAB, Excel, Access
-+	Dev Tools: GitHub, Subversion, Xcode, Eclipse, Sublime Text, Make
-+	Remote work experience using Google Hangouts, Skype, Asana
++	Multiple App Store applications
++	Languages: Objective-C (daily use), C++ (proficient), Java (experienced), Ruby (familiar)
++	Frameworks: Cocoa Touch, iOS, Rails
++	Relational Database experience: SQL, SAS, Matlab
++	Dev Tools: Git, Xcode, Charles, Reveal, Jira, HipChat
++	Education: BS Applied Mathematics with courses in Object Oriented Programming, Data Structures
+
 
 ## Employment ##
-Mobile Software Engineer  
-HowMuch, Los Angeles, CA  
-October 2012 – Present  
+iOS Engineer
+Bottle Rocket Apps, Dallas, TX
+December 2013 - Present
 
-+	Responsible for 60% of [HowMuch](https://itunes.apple.com/app/howmuch-make-requests.-make/id609234885?mt=8_) iPhone application, 80%+ AFNetworking calls, and 90%+ bug fixes, implementing 3 complete UI design changes.  
++	Built initial version of Bottle Rocket’s Bug Shaker framework – a library that allows testers to shake the app and add bug reports to Jira. Bug Shaker utilizes a category on UIViewController to allow a user to shake the device on any screen, this takes a screenshot and allows the user to paint and highlight visual errors, and finally upload the report utilizing the Jira REST API. 
++	As an AWE Framework engineer, took ownership of the main navigation, creating the flow layout, datasource, view controller, and actions/action handlers that power navigation throughout every implementation of the framework (future releases slated for October 2014).+	Delivered bug fixes and framework updates to USA Now, Oxygen Now, Telemundo Now, and Sprout Now.
+
+Freelance iOS Engineer  
+October 2012 – December 2013  
+
++	Responsible for 60% of HowMuch iPhone application, 80%+ AFNetworking calls, and 90%+ bug fixes, implementing 3 complete UI design changes.  
 +	Complete Facebook iOS 6.0 integration - coded with the ability to tag and introduce friends to the app by posting Challenges to Facebook Open Graph.
 
 Data Analyst (Core 61A)  
