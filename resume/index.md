@@ -16,8 +16,8 @@ Software Engineer with experience in data analysis. Additional experience in use
 
 
 ## Employment ##
-iOS Engineer
-Bottle Rocket Apps, Dallas, TX
+iOS Engineer    
+Bottle Rocket Apps, Dallas, TX    
 December 2013 - Present
 
 +	Built initial version of Bottle Rocket’s Bug Shaker framework – a library that allows testers to shake the app and add bug reports to Jira. Bug Shaker utilizes a category on UIViewController to allow a user to shake the device on any screen, this takes a screenshot and allows the user to paint and highlight visual errors, and finally upload the report utilizing the Jira REST API. 
