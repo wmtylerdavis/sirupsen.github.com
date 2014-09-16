@@ -7,7 +7,6 @@ title: Tyler Davis résumé
 Software Engineer with experience in data analysis. Additional experience in user interface development and product and program management.
 
 ### Software development: ###
-+	2 App Store applications
 +	Multiple App Store applications
 +	Languages: Objective-C (daily use), C++ (proficient), Java (experienced), Ruby (familiar)
 +	Frameworks: Cocoa Touch, iOS, Rails
