@@ -1,3 +1,6 @@
 gments: true
 permalink: '/:title'
 markdown: kramdown
+name: Tyler Davis
+description: 'Running, Parenting, Lifehacking, Programming'
+url: http://williamtylerdavis.com
