@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Importance of Performance Assessments"
-tags: running, performance, assessments
+tags: running, performance
 ---
 
 It's pretty well established that [athletes train](http://www.outsideonline.com/fitness/bodywork/the-fit-list/Athletes-Dont-Exercise-They-Train.html). Most runners likely have a goal in mind, whether it's to lose weight, be active, or live longer. Maybe they run to get away with eating more calories. Regardless, going out to run just to run is not going to result in anything consistent. It won't stick or you plateau in weight loss.
