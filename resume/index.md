@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tyler Davis résumé
+title: Tyler Davis resume
 ---
 
 ## Summary 	##
@@ -16,10 +16,19 @@ Software Engineer with experience in data analysis. Additional experience in use
 
 
 ## Employment ##
-iOS Engineer    
-Bottle Rocket Apps, Dallas, TX    
-December 2013 - Present
+Senior iOS Developer   
+[The Washington Post](http://www.washingtonpost.com), Washington D.C.  
+May 2015 - Present
 
++	Lead developer on the refactor of Print Edition on iPad Classic App, developed for iOS8+ in Swift 2.0
++	Delivered features and bug fixes in Swift for the new [Washington Post app](https://itunes.apple.com/us/app/the-washington-post/id938922398?mt=8)  
++	Developed operation to cache article excerpts in the background on app launch for seemless scrolling and cell rendering. 
+
+iOS Engineer    
+[Bottle Rocket Apps](http://www.bottlerocketstudios.com), Dallas, TX    
+December 2013 - May 2015
+
++	As [McKinsey Insights](https://itunes.apple.com/us/app/mckinsey-insights/id674902075?mt=8) developer converted views to storyboards and auto-layout. Organized actionable items (navigation, share, sign-in, etc) into objects to be reused between view controllers. Designed and developed the view controller, its data source, flow layout, and data transformer used on the home and browse screens on iPhone. 
 +	Built initial version of Bottle Rocket’s Bug Shaker framework – a library that allows testers to shake the app and add bug reports to Jira. Bug Shaker utilizes a category on UIViewController to allow a user to shake the device on any screen, this takes a screenshot and allows the user to paint and highlight visual errors, and finally upload the report utilizing the Jira REST API. 
 +	As an AWE Framework engineer, took ownership of the main navigation, creating the flow layout, datasource, view controller, and actions/action handlers that power navigation throughout every implementation of the framework (future releases slated for October 2014).   
 +	Delivered bug fixes and framework updates to USA Now, Oxygen Now, Telemundo Now, and Sprout Now.
@@ -27,11 +36,11 @@ December 2013 - Present
 Freelance iOS Engineer  
 October 2012 – December 2013  
 
-+	Responsible for 60% of HowMuch iPhone application, 80%+ AFNetworking calls, and 90%+ bug fixes, implementing 3 complete UI design changes.  
++	Responsible for 60% of HowMuch iPhone application(no longer in App Store), 80%+ AFNetworking calls, and 90%+ bug fixes, implementing 3 complete UI design changes.  
 +	Complete Facebook iOS 6.0 integration - coded with the ability to tag and introduce friends to the app by posting Challenges to Facebook Open Graph.
 
 Data Analyst (Core 61A)  
-US Air Force, Eglin AFB, Pentagon, VA  
+US Air Force, Eglin AFB & Pentagon, VA  
 April 2008 – Present  
 
 +	Developed trend, hiring, and demographic charts for reports to the Assistant Secretary of the Air Force (Acquisition), Congress, and other AF leadership – gave key insight into directing future plans, policies, and programs for 34k+ workforce.  
